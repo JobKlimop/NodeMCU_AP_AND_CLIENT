@@ -45,9 +45,13 @@ void onWifiClient() {
   Serial.println("Connection made to: " + String(ssid));
   Serial.print("IP adress: ");
   Serial.println(WiFi.localIP());
-
+  
+  server.on("/", handleRoot);
+    
   server.begin();
   Serial.println("HTTPServer started!");
+
+  
 }
 
 void handleRoot() {
